@@ -9,7 +9,7 @@ import Foundation
 
 struct HomeViewModel {
     
-    var imageNames = ["gtaV", "fifa24", "callofduty"]
+    var imageNames = ["Cyberpunk-2077", "fifa24", "gtaV"]
     var currentPage = 0
     
     func numberOfSection() -> Int {
