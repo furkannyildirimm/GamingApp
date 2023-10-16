@@ -22,6 +22,12 @@
 		5803F8E72ADC79DE00BD0CCD /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5803F8E62ADC79DE00BD0CCD /* UIView + Extension.swift */; };
 		5803F8EC2ADC910500BD0CCD /* AdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5803F8EA2ADC910500BD0CCD /* AdCollectionViewCell.swift */; };
 		5803F8ED2ADC910500BD0CCD /* AdCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5803F8EB2ADC910500BD0CCD /* AdCollectionViewCell.xib */; };
+		5803F8F42ADC9C1000BD0CCD /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5803F8F22ADC9C1000BD0CCD /* GameTableViewCell.swift */; };
+		5803F8F52ADC9C1000BD0CCD /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5803F8F32ADC9C1000BD0CCD /* GameTableViewCell.xib */; };
+		5803F8FA2ADCA2D900BD0CCD /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5803F8F92ADCA2D900BD0CCD /* Games.swift */; };
+		581117912ADD51E50081C584 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581117902ADD51E50081C584 /* NetworkManager.swift */; };
+		581117942ADD51FA0081C584 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 581117932ADD51FA0081C584 /* Alamofire */; };
+		581117962ADD52320081C584 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581117952ADD52320081C584 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,11 @@
 		5803F8E62ADC79DE00BD0CCD /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		5803F8EA2ADC910500BD0CCD /* AdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCollectionViewCell.swift; sourceTree = "<group>"; };
 		5803F8EB2ADC910500BD0CCD /* AdCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdCollectionViewCell.xib; sourceTree = "<group>"; };
+		5803F8F22ADC9C1000BD0CCD /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
+		5803F8F32ADC9C1000BD0CCD /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
+		5803F8F92ADCA2D900BD0CCD /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
+		581117902ADD51E50081C584 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		581117952ADD52320081C584 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				581117942ADD51FA0081C584 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +103,8 @@
 		5803F89D2ADC471500BD0CCD = {
 			isa = PBXGroup;
 			children = (
+				581117902ADD51E50081C584 /* NetworkManager.swift */,
+				581117952ADD52320081C584 /* Constants.swift */,
 				5803F8A82ADC471500BD0CCD /* GamingApp */,
 				5803F8C22ADC471600BD0CCD /* GamingAppTests */,
 				5803F8CC2ADC471600BD0CCD /* GamingAppUITests */,
@@ -111,15 +125,12 @@
 		5803F8A82ADC471500BD0CCD /* GamingApp */ = {
 			isa = PBXGroup;
 			children = (
-				5803F8A92ADC471500BD0CCD /* AppDelegate.swift */,
-				5803F8AB2ADC471500BD0CCD /* SceneDelegate.swift */,
-				5803F8AD2ADC471500BD0CCD /* HomeViewController.swift */,
-				5803F8E92ADC7A0800BD0CCD /* Cells */,
+				5803F8F82ADCA2C300BD0CCD /* Model */,
+				5803F8EF2ADC9AC600BD0CCD /* App */,
 				5803F8E82ADC79F400BD0CCD /* Extensions */,
-				5803F8DC2ADC55DC00BD0CCD /* HomeViewModel.swift */,
+				5803F8F02ADC9B3400BD0CCD /* ViewController */,
+				5803F8F12ADC9B8C00BD0CCD /* ViewModel */,
 				5803F8AF2ADC471500BD0CCD /* Main.storyboard */,
-				5803F8B52ADC471600BD0CCD /* Assets.xcassets */,
-				5803F8B72ADC471600BD0CCD /* LaunchScreen.storyboard */,
 				5803F8BA2ADC471600BD0CCD /* Info.plist */,
 				5803F8B22ADC471500BD0CCD /* GamingApp.xcdatamodeld */,
 			);
@@ -157,6 +168,76 @@
 			children = (
 				5803F8EA2ADC910500BD0CCD /* AdCollectionViewCell.swift */,
 				5803F8EB2ADC910500BD0CCD /* AdCollectionViewCell.xib */,
+				5803F8F22ADC9C1000BD0CCD /* GameTableViewCell.swift */,
+				5803F8F32ADC9C1000BD0CCD /* GameTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5803F8EF2ADC9AC600BD0CCD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5803F8AB2ADC471500BD0CCD /* SceneDelegate.swift */,
+				5803F8A92ADC471500BD0CCD /* AppDelegate.swift */,
+				5803F8B52ADC471600BD0CCD /* Assets.xcassets */,
+				5803F8B72ADC471600BD0CCD /* LaunchScreen.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5803F8F02ADC9B3400BD0CCD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5803F8FD2ADCA34800BD0CCD /* SearchViewController */,
+				5803F8FC2ADCA32700BD0CCD /* DetailViewController */,
+				5803F8FB2ADCA30D00BD0CCD /* HomeViewController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5803F8F12ADC9B8C00BD0CCD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5803F8DC2ADC55DC00BD0CCD /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5803F8F82ADCA2C300BD0CCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5803F8F92ADCA2D900BD0CCD /* Games.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5803F8FB2ADCA30D00BD0CCD /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5803F8AD2ADC471500BD0CCD /* HomeViewController.swift */,
+				5803F8E92ADC7A0800BD0CCD /* Cells */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		5803F8FC2ADCA32700BD0CCD /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailViewController;
+			sourceTree = "<group>";
+		};
+		5803F8FD2ADCA34800BD0CCD /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5803F8FE2ADCA35E00BD0CCD /* Cells */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		5803F8FE2ADCA35E00BD0CCD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -177,6 +258,9 @@
 			dependencies = (
 			);
 			name = GamingApp;
+			packageProductDependencies = (
+				581117932ADD51FA0081C584 /* Alamofire */,
+			);
 			productName = GamingApp;
 			productReference = 5803F8A62ADC471500BD0CCD /* GamingApp.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +333,9 @@
 				Base,
 			);
 			mainGroup = 5803F89D2ADC471500BD0CCD;
+			packageReferences = (
+				581117922ADD51FA0081C584 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 5803F8A72ADC471500BD0CCD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5803F8B92ADC471600BD0CCD /* LaunchScreen.storyboard in Resources */,
+				5803F8F52ADC9C1000BD0CCD /* GameTableViewCell.xib in Resources */,
 				5803F8ED2ADC910500BD0CCD /* AdCollectionViewCell.xib in Resources */,
 				5803F8B62ADC471600BD0CCD /* Assets.xcassets in Resources */,
 				5803F8B12ADC471500BD0CCD /* Main.storyboard in Resources */,
@@ -295,12 +383,16 @@
 			files = (
 				5803F8AE2ADC471500BD0CCD /* HomeViewController.swift in Sources */,
 				5803F8EC2ADC910500BD0CCD /* AdCollectionViewCell.swift in Sources */,
+				5803F8F42ADC9C1000BD0CCD /* GameTableViewCell.swift in Sources */,
+				5803F8FA2ADCA2D900BD0CCD /* Games.swift in Sources */,
+				581117912ADD51E50081C584 /* NetworkManager.swift in Sources */,
 				5803F8AA2ADC471500BD0CCD /* AppDelegate.swift in Sources */,
 				5803F8B42ADC471500BD0CCD /* GamingApp.xcdatamodeld in Sources */,
 				5803F8E52ADC79B100BD0CCD /* UIViewController + Extension.swift in Sources */,
 				5803F8E72ADC79DE00BD0CCD /* UIView + Extension.swift in Sources */,
 				5803F8DD2ADC55DC00BD0CCD /* HomeViewModel.swift in Sources */,
 				5803F8AC2ADC471500BD0CCD /* SceneDelegate.swift in Sources */,
+				581117962ADD52320081C584 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +739,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		581117922ADD51FA0081C584 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		581117932ADD51FA0081C584 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 581117922ADD51FA0081C584 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5803F8B22ADC471500BD0CCD /* GamingApp.xcdatamodeld */ = {

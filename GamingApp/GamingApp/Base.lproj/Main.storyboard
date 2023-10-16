@@ -62,6 +62,10 @@
                                 <rect key="frame" x="0.0" y="361" width="393" height="408"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="h1r-9j-ta8"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RqO-6g-jl5"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,6 +83,7 @@
                     <connections>
                         <outlet property="adCollectionView" destination="fFx-pN-z28" id="JdK-2g-dHo"/>
                         <outlet property="pageControl" destination="GbR-b2-d5y" id="SPC-Ns-2eC"/>
+                        <outlet property="tableView" destination="JWg-Ox-XVs" id="ZUw-gz-hvf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
