@@ -7,16 +7,15 @@
 
 import Foundation
 
-// MARK: - VideoGame
+// MARK: - GAMES
 public struct Games: Decodable {
     public let count: Int?
     public let next: String?
     public let results: [GamesList]?
     public let description: String?
-    
 }
 
-// MARK: - Result
+// MARK: - GAMESLİST
 public struct GamesList: Decodable {
     public let id: Int32?
     public let name, released: String?
@@ -44,8 +43,9 @@ public struct GamesList: Decodable {
         case metacritic
         
     }
-    
 }
+
+// MARK: - GAMEDETAİLS
 public struct GamesDetails: Decodable {
     public let name: String?
     public let released: String?
@@ -67,18 +67,4 @@ public struct GamesDetails: Decodable {
 }
 
 
-/*import SDWebImage
 
-// ...
-
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = adCollectionView.dequeueReusableCell(withReuseIdentifier: AdCollectionViewCell.identifier, for: indexPath) as! AdCollectionViewCell
-    let game = viewModel.games[indexPath.item]
-    
-    // SDWebImage ile resmi yükle
-    if let url = URL(string: game.backgroundImage) {
-        cell.imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder")) // Placeholder ekleyebilirsiniz
-    }
-    
-    return cell
-}*/
