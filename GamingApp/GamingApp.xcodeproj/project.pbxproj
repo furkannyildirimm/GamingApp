@@ -28,6 +28,8 @@
 		581117912ADD51E50081C584 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581117902ADD51E50081C584 /* NetworkManager.swift */; };
 		581117942ADD51FA0081C584 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 581117932ADD51FA0081C584 /* Alamofire */; };
 		581117962ADD52320081C584 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581117952ADD52320081C584 /* Constants.swift */; };
+		58D354F12ADD7010007B5280 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 58D354F02ADD7010007B5280 /* SDWebImage */; };
+		58D354F32ADD7010007B5280 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 58D354F22ADD7010007B5280 /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D354F12ADD7010007B5280 /* SDWebImage in Frameworks */,
+				58D354F32ADD7010007B5280 /* SDWebImageMapKit in Frameworks */,
 				581117942ADD51FA0081C584 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +113,7 @@
 				5803F8C22ADC471600BD0CCD /* GamingAppTests */,
 				5803F8CC2ADC471600BD0CCD /* GamingAppUITests */,
 				5803F8A72ADC471500BD0CCD /* Products */,
+				58D354EF2ADD7010007B5280 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,6 +247,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		58D354EF2ADD7010007B5280 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,6 +272,8 @@
 			name = GamingApp;
 			packageProductDependencies = (
 				581117932ADD51FA0081C584 /* Alamofire */,
+				58D354F02ADD7010007B5280 /* SDWebImage */,
+				58D354F22ADD7010007B5280 /* SDWebImageMapKit */,
 			);
 			productName = GamingApp;
 			productReference = 5803F8A62ADC471500BD0CCD /* GamingApp.app */;
@@ -335,6 +349,7 @@
 			mainGroup = 5803F89D2ADC471500BD0CCD;
 			packageReferences = (
 				581117922ADD51FA0081C584 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				58D354EE2ADD6F63007B5280 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 5803F8A72ADC471500BD0CCD /* Products */;
 			projectDirPath = "";
@@ -749,6 +764,14 @@
 				minimumVersion = 5.8.0;
 			};
 		};
+		58D354EE2ADD6F63007B5280 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -756,6 +779,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 581117922ADD51FA0081C584 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		58D354F02ADD7010007B5280 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58D354EE2ADD6F63007B5280 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		58D354F22ADD7010007B5280 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58D354EE2ADD6F63007B5280 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 

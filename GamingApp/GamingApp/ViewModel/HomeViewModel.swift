@@ -9,11 +9,4 @@ import Foundation
 
 struct HomeViewModel {
     
-    var imageNames = ["Cyberpunk-2077", "fifa24", "gtaV"]
-    var games: [GamesList] = []
-       var currentPage = 0
-    
-    func numberOfSection() -> Int {
-        return imageNames.count
-    }
 }

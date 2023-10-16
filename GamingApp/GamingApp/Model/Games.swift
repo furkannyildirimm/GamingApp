@@ -67,3 +67,18 @@ public struct GamesDetails: Decodable {
 }
 
 
+/*import SDWebImage
+
+// ...
+
+func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = adCollectionView.dequeueReusableCell(withReuseIdentifier: AdCollectionViewCell.identifier, for: indexPath) as! AdCollectionViewCell
+    let game = viewModel.games[indexPath.item]
+    
+    // SDWebImage ile resmi yükle
+    if let url = URL(string: game.backgroundImage) {
+        cell.imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder")) // Placeholder ekleyebilirsiniz
+    }
+    
+    return cell
+}*/
