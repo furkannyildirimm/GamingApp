@@ -34,6 +34,9 @@
 		58D354F72ADDC95F007B5280 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D354F62ADDC95F007B5280 /* DetailViewController.swift */; };
 		58D354F92ADDCA41007B5280 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D354F82ADDCA41007B5280 /* SearchViewController.swift */; };
 		58D354FC2ADDCA80007B5280 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D354FB2ADDCA80007B5280 /* FavoritesViewController.swift */; };
+		58EFACCC2ADEBCBE004461F4 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EFACCA2ADEBCBE004461F4 /* SearchTableViewCell.swift */; };
+		58EFACCD2ADEBCBE004461F4 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58EFACCB2ADEBCBE004461F4 /* SearchTableViewCell.xib */; };
+		58EFACCF2ADED003004461F4 /* TabbarScrolling + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EFACCE2ADED003004461F4 /* TabbarScrolling + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		58D354F62ADDC95F007B5280 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		58D354F82ADDCA41007B5280 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		58D354FB2ADDCA80007B5280 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		58EFACCA2ADEBCBE004461F4 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		58EFACCB2ADEBCBE004461F4 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		58EFACCE2ADED003004461F4 /* TabbarScrolling + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabbarScrolling + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +121,6 @@
 		5803F89D2ADC471500BD0CCD = {
 			isa = PBXGroup;
 			children = (
-				581117902ADD51E50081C584 /* NetworkManager.swift */,
-				581117952ADD52320081C584 /* Constants.swift */,
-				58D354F42ADDACAD007B5280 /* CardView.swift */,
 				5803F8A82ADC471500BD0CCD /* GamingApp */,
 				5803F8C22ADC471600BD0CCD /* GamingAppTests */,
 				5803F8CC2ADC471600BD0CCD /* GamingAppUITests */,
@@ -139,14 +142,15 @@
 		5803F8A82ADC471500BD0CCD /* GamingApp */ = {
 			isa = PBXGroup;
 			children = (
-				5803F8F82ADCA2C300BD0CCD /* Model */,
 				5803F8EF2ADC9AC600BD0CCD /* App */,
+				584769122ADDFF2400B4DF0A /* Constants */,
 				5803F8E82ADC79F400BD0CCD /* Extensions */,
+				5847690F2ADDFEEC00B4DF0A /* Managers */,
 				5803F8F02ADC9B3400BD0CCD /* ViewController */,
 				5803F8F12ADC9B8C00BD0CCD /* ViewModel */,
-				5803F8AF2ADC471500BD0CCD /* Main.storyboard */,
-				5803F8BA2ADC471600BD0CCD /* Info.plist */,
 				5803F8B22ADC471500BD0CCD /* GamingApp.xcdatamodeld */,
+				5803F8BA2ADC471600BD0CCD /* Info.plist */,
+				5803F8AF2ADC471500BD0CCD /* Main.storyboard */,
 			);
 			path = GamingApp;
 			sourceTree = "<group>";
@@ -171,8 +175,10 @@
 		5803F8E82ADC79F400BD0CCD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				58D354F42ADDACAD007B5280 /* CardView.swift */,
 				5803F8E62ADC79DE00BD0CCD /* UIView + Extension.swift */,
 				5803F8E42ADC79B100BD0CCD /* UIViewController + Extension.swift */,
+				58EFACCE2ADED003004461F4 /* TabbarScrolling + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 				5803F8A92ADC471500BD0CCD /* AppDelegate.swift */,
 				5803F8B52ADC471600BD0CCD /* Assets.xcassets */,
 				5803F8B72ADC471600BD0CCD /* LaunchScreen.storyboard */,
+				5803F8F82ADCA2C300BD0CCD /* Model */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -255,8 +262,42 @@
 		5803F8FE2ADCA35E00BD0CCD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				58EFACCA2ADEBCBE004461F4 /* SearchTableViewCell.swift */,
+				58EFACCB2ADEBCBE004461F4 /* SearchTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		5847690F2ADDFEEC00B4DF0A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				584769112ADDFF0B00B4DF0A /* FavoriteManager */,
+				584769102ADDFEFA00B4DF0A /* NetworkManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		584769102ADDFEFA00B4DF0A /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				581117902ADD51E50081C584 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		584769112ADDFF0B00B4DF0A /* FavoriteManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FavoriteManager;
+			sourceTree = "<group>";
+		};
+		584769122ADDFF2400B4DF0A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				581117952ADD52320081C584 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		58D354EF2ADD7010007B5280 /* Frameworks */ = {
@@ -400,6 +441,7 @@
 				5803F8ED2ADC910500BD0CCD /* AdCollectionViewCell.xib in Resources */,
 				5803F8B62ADC471600BD0CCD /* Assets.xcassets in Resources */,
 				5803F8B12ADC471500BD0CCD /* Main.storyboard in Resources */,
+				58EFACCD2ADEBCBE004461F4 /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +477,9 @@
 				58D354F52ADDACAD007B5280 /* CardView.swift in Sources */,
 				5803F8E52ADC79B100BD0CCD /* UIViewController + Extension.swift in Sources */,
 				58D354FC2ADDCA80007B5280 /* FavoritesViewController.swift in Sources */,
+				58EFACCC2ADEBCBE004461F4 /* SearchTableViewCell.swift in Sources */,
 				5803F8E72ADC79DE00BD0CCD /* UIView + Extension.swift in Sources */,
+				58EFACCF2ADED003004461F4 /* TabbarScrolling + Extension.swift in Sources */,
 				5803F8DD2ADC55DC00BD0CCD /* HomeViewModel.swift in Sources */,
 				5803F8AC2ADC471500BD0CCD /* SceneDelegate.swift in Sources */,
 				581117962ADD52320081C584 /* Constants.swift in Sources */,

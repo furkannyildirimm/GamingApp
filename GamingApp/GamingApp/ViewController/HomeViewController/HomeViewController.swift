@@ -22,12 +22,11 @@ class HomeViewController: UIViewController {
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         registerCells()
         flowLayout()
         setupPageControl()
         reloadData()
-        fetchGamesImages()
+        fetchGamesList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,8 +81,8 @@ class HomeViewController: UIViewController {
         adCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
-    private func fetchGamesImages() {
-        viewModel.fetchGamesImages()
+    private func fetchGamesList() {
+        viewModel.fetchGamesList()
     }
     
     private func reloadData(){
@@ -119,8 +118,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentPage = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
-        pageControl.currentPage = currentPage
+        if scrollView == adCollectionView {
+            let currentPage = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
+            pageControl.currentPage = currentPage
+        }
+        
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

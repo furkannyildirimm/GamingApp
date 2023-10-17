@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WSN-9J-wfD">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,14 +16,44 @@
                     <view key="view" contentMode="scaleToFill" id="oS7-7a-12s">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ib-zi-LIZ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="ZDL-5e-vSI" id="CtV-oG-mvK"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="btw-C1-wOc">
+                                <rect key="frame" x="0.0" y="159" width="393" height="610"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aGT-1W-svN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Ib-zi-LIZ" firstAttribute="trailing" secondItem="aGT-1W-svN" secondAttribute="trailing" id="4JC-aQ-jv9"/>
+                            <constraint firstItem="btw-C1-wOc" firstAttribute="top" secondItem="0Ib-zi-LIZ" secondAttribute="bottom" id="JNB-UZ-05W"/>
+                            <constraint firstItem="0Ib-zi-LIZ" firstAttribute="top" secondItem="aGT-1W-svN" secondAttribute="top" id="PoL-rr-hu9"/>
+                            <constraint firstItem="aGT-1W-svN" firstAttribute="bottom" secondItem="btw-C1-wOc" secondAttribute="bottom" id="Qqs-Xu-71v"/>
+                            <constraint firstItem="btw-C1-wOc" firstAttribute="leading" secondItem="aGT-1W-svN" secondAttribute="leading" id="tJe-Fj-rrx"/>
+                            <constraint firstItem="0Ib-zi-LIZ" firstAttribute="leading" secondItem="aGT-1W-svN" secondAttribute="leading" id="xai-fP-nh2"/>
+                            <constraint firstItem="btw-C1-wOc" firstAttribute="trailing" secondItem="aGT-1W-svN" secondAttribute="trailing" id="y4I-ey-eZh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R3b-t3-Sgu"/>
+                    <connections>
+                        <outlet property="searchBar" destination="0Ib-zi-LIZ" id="WVk-D6-QJC"/>
+                        <outlet property="tableView" destination="btw-C1-wOc" id="ejO-5w-vZp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfV-Qs-5V1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1781" y="1401"/>
+            <point key="canvasLocation" x="969" y="1401"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -109,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ald-Db-WII" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="969" y="1401"/>
+            <point key="canvasLocation" x="1827" y="1401"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lZb-R8-hLT">
@@ -165,7 +196,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5U8-KV-SNU">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1500"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="callofduty" translatesAutoresizingMaskIntoConstraints="NO" id="kql-46-zyb">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestImageLarge.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kql-46-zyb">
                                                 <rect key="frame" x="8" y="0.0" width="377" height="250"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="ac7-5n-NYU"/>
@@ -266,7 +297,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMK-bA-KGv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968.70229007633588" y="665.49295774647885"/>
+            <point key="canvasLocation" x="1827" y="694"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9qH-mM-8ZZ">
@@ -285,11 +316,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dS6-ek-EPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1782" y="665"/>
+            <point key="canvasLocation" x="969" y="695"/>
         </scene>
     </scenes>
     <resources>
-        <image name="callofduty" width="2880" height="1800"/>
+        <image name="TestImageLarge.jpg" width="5250" height="3450"/>
         <image name="heart-30x30" width="30" height="30"/>
         <image name="heart-selected" width="48" height="48"/>
         <image name="home-30x30" width="30" height="30"/>
@@ -300,10 +331,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

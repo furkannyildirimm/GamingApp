@@ -14,7 +14,7 @@ class HomeViewModel {
     var performSegue: (() -> Void)?
     var selectedGameDetails: GamesDetails?
     
-    func fetchGamesImages() {
+    func fetchGamesList() {
         NetworkManager.shared.fetchGameList { [weak self] (result: Result<Games, Error>) in
             switch result {
             case .success(let games):
@@ -48,6 +48,25 @@ class HomeViewModel {
     func sortGamesByName() {
         gamesList.sort { $0.name?.localizedCaseInsensitiveCompare($1.name ?? "") == .orderedAscending }
     }
-    
+}
+
+class SearchViewModel {
+    var reloadTableView: (() -> Void)?
+    var gamesList: [GamesList] = []
+    var performSegue: (() -> Void)?
+    func fetchGamesList() {
+        NetworkManager.shared.fetchGameList { [weak self] (result: Result<Games, Error>) in
+            switch result {
+            case .success(let games):
+                if let gameList = games.results {
+                    self?.gamesList = gameList
+                    self?.reloadTableView?()
+                    print("Games list updated successfully: \(gameList)")
+                }
+            case .failure(let error):
+                print("Error fetching games: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
