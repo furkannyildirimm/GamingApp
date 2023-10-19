@@ -214,7 +214,6 @@
 		5803F8F02ADC9B3400BD0CCD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				58798D742AE18AD80003EB5A /* SplashViewController */,
 				58798D712AE188AC0003EB5A /* BaseViewController */,
 				5803F8FC2ADCA32700BD0CCD /* DetailViewController */,
 				58D354FA2ADDCA53007B5280 /* FavoritesViewController */,
@@ -324,13 +323,6 @@
 				58798D722AE188D70003EB5A /* BaseViewController.swift */,
 			);
 			path = BaseViewController;
-			sourceTree = "<group>";
-		};
-		58798D742AE18AD80003EB5A /* SplashViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SplashViewController;
 			sourceTree = "<group>";
 		};
 		58D354EF2ADD7010007B5280 /* Frameworks */ = {

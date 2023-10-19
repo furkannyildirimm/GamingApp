@@ -23,6 +23,7 @@ class SearchViewController: BaseViewController {
         fetchData()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
     }
     
     private func registerCells() {
@@ -34,7 +35,7 @@ class SearchViewController: BaseViewController {
     }
     
     private func reloadData() {
-       
+        
         viewModel.reloadTableView = { [weak self] in
             self?.tableView.reloadData()
             self?.hideLoading()
@@ -52,12 +53,12 @@ class SearchViewController: BaseViewController {
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.gamesList.count
+        return viewModel.isSearching ? viewModel.filteredList.count : viewModel.gamesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as! SearchTableViewCell
-        cell.setup(games: viewModel.gamesList[indexPath.row])
+        cell.setup(games: viewModel.isSearching ? viewModel.filteredList[indexPath.row] : viewModel.gamesList[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
@@ -81,5 +82,26 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         viewModel.fetchGameDetails(for: String(selectedGame.id ?? 0)) { [weak self] in
             self?.performSegue(withIdentifier: "toDetail", sender: nil)
         }
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchTerm = searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        
+        if !searchTerm.isEmpty {
+            viewModel.isSearching = true
+            viewModel.filteredList = viewModel.gamesList.filter { game in
+                return game.name?.lowercased().contains(searchTerm) ?? false
+            }
+        } else {
+            viewModel.clearSearchResult()
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.clearSearchResult()
+        tableView.reloadData()
     }
 }

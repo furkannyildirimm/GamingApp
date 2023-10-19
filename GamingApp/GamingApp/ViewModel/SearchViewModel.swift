@@ -6,10 +6,6 @@
 //
 import UIKit
 
-protocol denemeProtocol {
-    func filterGameList(with searchTect: String)
-}
-
 class SearchViewModel {
         
     
@@ -20,6 +16,7 @@ class SearchViewModel {
     var pageNumber: Int = 1
     var selectedGameDetails: GamesDetails?
     var filteredList: [GamesList] = []
+    var isSearching: Bool = false
     
     func fetchGamesList(_ isLoadMore: Bool,pageNumber: Int) {
         NetworkManager.shared.fetchGameList(pageNumber) { [weak self] (result: Result<Games, Error>) in
@@ -67,4 +64,10 @@ class SearchViewModel {
             }
             reloadTableView?()
         }
+    
+    func clearSearchResult() {
+        isSearching = false
+        filteredList = []
+        reloadTableView?()
+    }
 }

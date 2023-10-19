@@ -115,7 +115,13 @@
                             <constraint firstItem="JWg-Ox-XVs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zoc-EY-QF3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JVY-jR-mig"/>
+                    <navigationItem key="navigationItem" id="JVY-jR-mig">
+                        <barButtonItem key="rightBarButtonItem" title="Short" image="line.3.horizontal.decrease" catalog="system" id="8gI-Gm-8ax" userLabel="Sort">
+                            <connections>
+                                <action selector="sort:" destination="BYZ-38-t0r" id="rCG-go-eXH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="adCollectionView" destination="fFx-pN-z28" id="JdK-2g-dHo"/>
                         <outlet property="pageControl" destination="GbR-b2-d5y" id="SPC-Ns-2eC"/>
@@ -329,6 +335,7 @@
         <image name="heart-selected" width="48" height="48"/>
         <image name="home-30x30" width="30" height="30"/>
         <image name="home-selected" width="48" height="48"/>
+        <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
         <image name="search" width="48" height="48"/>
         <image name="search-30x30" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">

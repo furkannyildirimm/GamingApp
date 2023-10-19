@@ -28,6 +28,7 @@ class HomeViewController: BaseViewController {
         reloadData()
         showLoading()
         fetchGamesList()
+        checkInternet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,8 +73,12 @@ class HomeViewController: BaseViewController {
     @objc private func scrollToNextPage() {
         let currentPage = adCollectionView.contentOffset.x / adCollectionView.frame.width
         let nextPage = currentPage + 1
-        let indexPath = IndexPath(item: Int(nextPage) % viewModel.gamesList.count, section: 0)
-        adCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        if viewModel.gamesList.count > 0 {
+            let indexPath = IndexPath(item: Int(nextPage) % viewModel.gamesList.count, section: 0)
+            adCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        } else {
+            print("Hata: gamesList.count sıfır!")
+        }
     }
     
     @objc private func pageControlValueChanged(_ sender: UIPageControl) {
@@ -84,6 +89,20 @@ class HomeViewController: BaseViewController {
     
     private func fetchGamesList() {
         viewModel.fetchGamesList(false, pageNumber: viewModel.pageNumber)
+    }
+    
+    private func checkInternet(){
+        let session = URLSession(configuration: .default)
+        let request = URLRequest(url: URL(string: "\(Constants.apiBaseURL.rawValue)games\(Constants.jsonApiKey.rawValue)\(Constants.apiKey.rawValue)\(viewModel.pageNumber)")!)
+                let task = session.dataTask(with: request) { data, response, error in
+                    if data != nil {
+                        // İnternet bağlantısı var.
+                        print("İnternet bağlantısı var.")
+                    } else {
+                        self.showAlert("Error", "No Internet")
+                    }
+                }
+                task.resume()
     }
     
     private func reloadData(){
@@ -101,6 +120,11 @@ class HomeViewController: BaseViewController {
                 destinationVC.gameDetails = viewModel.selectedGameDetails
             }
         }
+    }
+    
+    
+    @IBAction func sort(_ sender: Any) {
+        
     }
 }
 
