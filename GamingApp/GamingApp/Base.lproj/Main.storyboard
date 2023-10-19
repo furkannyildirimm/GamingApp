@@ -49,6 +49,7 @@
                     <connections>
                         <outlet property="searchBar" destination="0Ib-zi-LIZ" id="WVk-D6-QJC"/>
                         <outlet property="tableView" destination="btw-C1-wOc" id="ejO-5w-vZp"/>
+                        <segue destination="GOc-Hf-fNl" kind="show" identifier="toDetail" id="8SJ-Ko-Sdv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfV-Qs-5V1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -58,14 +59,14 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="GamingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="GamingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fFx-pN-z28">
                                 <rect key="frame" x="16" y="103" width="361" height="250"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="QaH-8e-yXg"/>
                                 </constraints>
@@ -92,7 +93,7 @@
                             </pageControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JWg-Ox-XVs">
                                 <rect key="frame" x="0.0" y="361" width="393" height="408"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="h1r-9j-ta8"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="RqO-6g-jl5"/>
@@ -100,7 +101,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fFx-pN-z28" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0na-Hs-nKy"/>
                             <constraint firstItem="GbR-b2-d5y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="224" id="9Me-WE-whc"/>
@@ -145,7 +146,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="lZb-R8-hLT">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WSN-9J-wfD" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="WSN-9J-wfD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dry-1e-piJ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c4K-pK-f3l">
@@ -278,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlB-Ef-l0E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968.70229007633588" y="2130.9859154929577"/>
+            <point key="canvasLocation" x="969" y="2187"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9kZ-mY-hwF">
@@ -319,6 +320,9 @@
             <point key="canvasLocation" x="969" y="695"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="umc-YU-1po"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="TestImageLarge.jpg" width="5250" height="3450"/>
         <image name="heart-30x30" width="30" height="30"/>
@@ -330,11 +334,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

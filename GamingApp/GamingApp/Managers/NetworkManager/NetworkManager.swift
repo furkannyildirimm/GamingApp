@@ -21,11 +21,11 @@ final class NetworkManager {
             case .failure(let error):
                 completion(.failure(error))
             }
-        }
+        } 
     }
 
-    func fetchGameList<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) {
-        let url = "\(Constants.apiBaseURL.rawValue)games\(Constants.jsonApiKey.rawValue)\(Constants.apiKey.rawValue)"
+    func fetchGameList<T: Decodable>(_ pageNumber: Int, completion: @escaping (Result<T, Error>) -> Void) {
+        let url = "\(Constants.apiBaseURL.rawValue)games\(Constants.jsonApiKey.rawValue)\(Constants.apiKey.rawValue)\(pageNumber)"
         AF.request(url).responseDecodable(of: T.self, decoder: JSONDecoder()) { response in
             switch response.result {
             case .success(let result):

@@ -1,23 +1,27 @@
 //
-//  HomeViewModel.swift
+//  SearchViewModel.swift
 //  GamingApp
 //
-//  Created by STARK on 15.10.2023.
+//  Created by STARK on 17.10.2023.
 //
+import UIKit
 
-import Foundation
+protocol denemeProtocol {
+    func filterGameList(with searchTect: String)
+}
 
-class HomeViewModel {
+class SearchViewModel {
+        
     
+    var reloadTableView: (() -> Void)?
     var gamesList: [GamesList] = []
-    var reloadCollectionView: (() -> Void)?
     var performSegue: (() -> Void)?
-    var selectedGameDetails: GamesDetails?
     var totalCount: Int = 0
     var pageNumber: Int = 1
+    var selectedGameDetails: GamesDetails?
+    var filteredList: [GamesList] = []
     
     func fetchGamesList(_ isLoadMore: Bool,pageNumber: Int) {
-        
         NetworkManager.shared.fetchGameList(pageNumber) { [weak self] (result: Result<Games, Error>) in
             switch result {
             case .success(let games):
@@ -28,8 +32,8 @@ class HomeViewModel {
                     } else {
                         self?.gamesList = gameList
                     }
-                    
-                    self?.reloadCollectionView?()
+                    self?.reloadTableView?()
+                    print("Games list updated successfully: \(gameList)")
                 }
             case .failure(let error):
                 print("Error fetching games: \(error.localizedDescription)")
@@ -50,13 +54,17 @@ class HomeViewModel {
         }
     }
     
-    func didSelectGame(at indexPath: IndexPath) {
-        
-    }
-    
-    func sortGamesByName() {
-        gamesList.sort { $0.name?.localizedCaseInsensitiveCompare($1.name ?? "") == .orderedAscending }
-    }
+    func filterGamesList(with searchText: String) {
+            if searchText.isEmpty {
+                filteredList = gamesList
+            } else {
+                filteredList = gamesList.filter { game in
+                    if let name = game.name {
+                        return name.lowercased().contains(searchText.lowercased())
+                    }
+                    return false
+                }
+            }
+            reloadTableView?()
+        }
 }
-
-

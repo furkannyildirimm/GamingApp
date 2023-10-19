@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     // MARK: - PROPERTIES
     private var viewModel = HomeViewModel()
@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
         flowLayout()
         setupPageControl()
         reloadData()
+        showLoading()
         fetchGamesList()
     }
     
@@ -82,7 +83,7 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchGamesList() {
-        viewModel.fetchGamesList()
+        viewModel.fetchGamesList(false, pageNumber: viewModel.pageNumber)
     }
     
     private func reloadData(){
@@ -90,6 +91,7 @@ class HomeViewController: UIViewController {
             self?.adCollectionView.reloadData()
             self?.pageControl.numberOfPages = self?.viewModel.gamesList.count ?? 0
             self?.tableView.reloadData()
+            self?.hideLoading()
         }
     }
     
@@ -152,6 +154,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let selectedGame = viewModel.gamesList[indexPath.row]
         viewModel.fetchGameDetails(for: String(selectedGame.id ?? 0)) { [weak self] in
             self?.performSegue(withIdentifier: "toDetail", sender: nil)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.gamesList.count - 1 {
+            if viewModel.totalCount > viewModel.gamesList.count{
+                viewModel.pageNumber += 1
+                viewModel.fetchGamesList(true, pageNumber: viewModel.pageNumber)
+                tableView.reloadData()
+            }
         }
     }
 }

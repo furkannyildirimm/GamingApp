@@ -8,41 +8,46 @@
 import UIKit
 import SDWebImage
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
     
     var viewModel = SearchViewModel()
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
-        //reloadData()
-        fetchGamesList()
-        viewModel.fetchGamesList()
-        
+        showLoading()
+        reloadData()
+        fetchData()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     private func registerCells() {
         tableView.register(UINib(nibName: SearchTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SearchTableViewCell.identifier)
     }
     
-    private func fetchGamesList() {
+    private func fetchData() {
+        viewModel.fetchGamesList(false, pageNumber: viewModel.pageNumber)
+    }
+    
+    private func reloadData() {
        
         viewModel.reloadTableView = { [weak self] in
             self?.tableView.reloadData()
+            self?.hideLoading()
         }
     }
     
-//    private func reloadData(){
-//        print("Number of games: \(viewModel.gamesList.count)")
-//
-//        DispatchQueue.main.async {
-//
-//            self.tableView.reloadData()
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            if let destinationVC = segue.destination as? DetailViewController {
+                destinationVC.gameDetails = viewModel.selectedGameDetails
+            }
+        }
+    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -59,5 +64,22 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 125
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.gamesList.count - 1 {
+            if viewModel.totalCount > viewModel.gamesList.count{
+                viewModel.pageNumber += 1
+                viewModel.fetchGamesList(true, pageNumber: viewModel.pageNumber)
+                tableView.reloadData()
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedGame = viewModel.gamesList[indexPath.row]
+        viewModel.fetchGameDetails(for: String(selectedGame.id ?? 0)) { [weak self] in
+            self?.performSegue(withIdentifier: "toDetail", sender: nil)
+        }
     }
 }
