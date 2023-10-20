@@ -28,6 +28,7 @@
 		581117912ADD51E50081C584 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581117902ADD51E50081C584 /* NetworkManager.swift */; };
 		581117942ADD51FA0081C584 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 581117932ADD51FA0081C584 /* Alamofire */; };
 		581117962ADD52320081C584 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581117952ADD52320081C584 /* Constants.swift */; };
+		5845BC5E2AE30051005D4F23 /* EmptyView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5845BC5D2AE30051005D4F23 /* EmptyView + Extension.swift */; };
 		58798D732AE188D70003EB5A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58798D722AE188D70003EB5A /* BaseViewController.swift */; };
 		58D354F12ADD7010007B5280 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 58D354F02ADD7010007B5280 /* SDWebImage */; };
 		58D354F32ADD7010007B5280 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 58D354F22ADD7010007B5280 /* SDWebImageMapKit */; };
@@ -84,6 +85,7 @@
 		5803F8F92ADCA2D900BD0CCD /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		581117902ADD51E50081C584 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		581117952ADD52320081C584 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5845BC5D2AE30051005D4F23 /* EmptyView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyView + Extension.swift"; sourceTree = "<group>"; };
 		58798D722AE188D70003EB5A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		58D354F42ADDACAD007B5280 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		58D354F62ADDC95F007B5280 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				5803F8E62ADC79DE00BD0CCD /* UIView + Extension.swift */,
 				5803F8E42ADC79B100BD0CCD /* UIViewController + Extension.swift */,
+				5845BC5D2AE30051005D4F23 /* EmptyView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				58DDC59A2AE0577400F163DE /* LoadingShowable.swift in Sources */,
 				5803F8E72ADC79DE00BD0CCD /* UIView + Extension.swift in Sources */,
 				5803F8DD2ADC55DC00BD0CCD /* HomeViewModel.swift in Sources */,
+				5845BC5E2AE30051005D4F23 /* EmptyView + Extension.swift in Sources */,
 				5803F8AC2ADC471500BD0CCD /* SceneDelegate.swift in Sources */,
 				581117962ADD52320081C584 /* Constants.swift in Sources */,
 				58D354F72ADDC95F007B5280 /* DetailViewController.swift in Sources */,

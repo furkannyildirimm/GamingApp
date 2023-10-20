@@ -12,7 +12,7 @@ class HomeViewController: BaseViewController {
     
     // MARK: - PROPERTIES
     private var viewModel = HomeViewModel()
-    private var timer: Timer?
+    //private var timer: Timer?
     
     // MARK: - IBOUTLETS
     @IBOutlet private weak var adCollectionView: UICollectionView!
@@ -62,12 +62,12 @@ class HomeViewController: BaseViewController {
     }
     
     private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
+        viewModel.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
     }
     
     private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
+        viewModel.timer?.invalidate()
+        viewModel.timer = nil
     }
     
     @objc private func scrollToNextPage() {

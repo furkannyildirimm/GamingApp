@@ -11,6 +11,7 @@ import SDWebImage
 class SearchViewController: BaseViewController {
     
     var viewModel = SearchViewModel()
+    private var emptyStateImageView: UIImageView!
     
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
@@ -24,6 +25,7 @@ class SearchViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        emptyView()
     }
     
     private func registerCells() {
@@ -49,7 +51,27 @@ class SearchViewController: BaseViewController {
             }
         }
     }
+    
+    private func emptyView() {
+        emptyStateImageView = UIImageView(emptyStateImage: UIImage(named: "notFound")!)
+        emptyStateImageView.contentMode = .scaleAspectFit
+        tableView.backgroundView = emptyStateImageView
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
+        checkEmptyState()
+    }
+    
+    private func checkEmptyState() {
+        let isEmpty = viewModel.gamesList.count == 0
+        
+        if isEmpty {
+            emptyStateImageView.showEmptyState(in: tableView)
+        } else {
+            emptyStateImageView.hideEmptyState()
+        }
+    }
 }
+
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

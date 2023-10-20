@@ -15,6 +15,7 @@ class HomeViewModel {
     var selectedGameDetails: GamesDetails?
     var totalCount: Int = 0
     var pageNumber: Int = 1
+    var timer: Timer?
     
     func fetchGamesList(_ isLoadMore: Bool,pageNumber: Int) {
         
